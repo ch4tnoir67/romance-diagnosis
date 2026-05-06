@@ -111,7 +111,7 @@ async function analyzePalm(base64Image) {
     btnStartCamera.disabled = true;
 
     try {
-        const response = await fetch('http://localhost:5000/analyze-palm', {
+        const response = await fetch('/api/analyze-palm', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
