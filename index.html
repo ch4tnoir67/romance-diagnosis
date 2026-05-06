@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星導恋愛診断</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container">
+        <!-- Start Screen -->
+        <section id="step-0" class="step active">
+            <h1 class="title">星導恋愛診断</h1>
+            <p class="subtitle">運命の糸を紐解く、神秘の占術</p>
+            <button class="btn primary-btn" onclick="nextStep(1)">診断を始める</button>
+        </section>
+
+        <!-- Step 1: Basic -->
+        <section id="step-1" class="step">
+            <h2>第一の扉: 基本の星</h2>
+            <div class="form-group">
+                <label>お名前（ニックネーム可）</label>
+                <input type="text" id="user-name" placeholder="例: 星空 太郎" required>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label>生年月日</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <div class="col">
+                    <label>出身地</label>
+                    <input type="text" id="birthplace" placeholder="例: 東京都">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label>血液型</label>
+                    <select id="blood-type">
+                        <option value="A">A型</option>
+                        <option value="B">B型</option>
+                        <option value="O">O型</option>
+                        <option value="AB">AB型</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label>性別</label>
+                    <select id="gender">
+                        <option value="female">女性</option>
+                        <option value="male">男性</option>
+                        <option value="other">その他・回答しない</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label>身長 (cm)</label>
+                    <input type="number" id="height" placeholder="例: 160">
+                </div>
+                <div class="col">
+                    <label>体重 (kg)</label>
+                    <input type="number" id="weight" placeholder="例: 50">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>学部・職業</label>
+                <input type="text" id="faculty" placeholder="例: 経済学部, エンジニア">
+            </div>
+            <div class="btn-group">
+                <button class="btn secondary-btn" onclick="prevStep(0)">戻る</button>
+                <button class="btn primary-btn" onclick="nextStep(2)">次へ</button>
+            </div>
+        </section>
+
+        <!-- Step 2: Personality -->
+        <section id="step-2" class="step">
+            <h2>第二の扉: 内なる星</h2>
+            <div class="form-group row">
+                <div class="col">
+                    <label>MBTI (性格タイプ)</label>
+                    <select id="mbti">
+                        <option value="INTJ">INTJ (建築家)</option>
+                        <option value="INTP">INTP (論理学者)</option>
+                        <option value="ENTJ">ENTJ (指揮官)</option>
+                        <option value="ENTP">ENTP (討論者)</option>
+                        <option value="INFJ">INFJ (提唱者)</option>
+                        <option value="INFP">INFP (仲介者)</option>
+                        <option value="ENFJ">ENFJ (主人公)</option>
+                        <option value="ENFP">ENFP (運動家)</option>
+                        <option value="ISTJ">ISTJ (管理者)</option>
+                        <option value="ISFJ">ISFJ (擁護者)</option>
+                        <option value="ESTJ">ESTJ (幹部)</option>
+                        <option value="ESFJ">ESFJ (領事館)</option>
+                        <option value="ISTP">ISTP (巨匠)</option>
+                        <option value="ISFP">ISFP (冒険家)</option>
+                        <option value="ESTP">ESTP (起業家)</option>
+                        <option value="ESFP">ESFP (エンターテイナー)</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label>兄弟構成</label>
+                    <select id="siblings">
+                        <option value="eldest">長子（一番上）</option>
+                        <option value="middle">中間子（真ん中）</option>
+                        <option value="youngest">末っ子（一番下）</option>
+                        <option value="only">一人っ子</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label>恋愛MBTI</label>
+                    <select id="love-mbti">
+                        <option value="romantic">ロマンチスト型</option>
+                        <option value="pragmatic">現実主義型</option>
+                        <option value="passionate">情熱突走型</option>
+                        <option value="cautious">慎重見極め型</option>
+                        <option value="devoted">尽くし型</option>
+                        <option value="independent">自立尊重型</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label>休日の過ごし方</label>
+                    <select id="holiday">
+                        <option value="indoor">完全インドア派</option>
+                        <option value="outdoor">アクティブアウトドア派</option>
+                        <option value="both">気分によって両方</option>
+                    </select>
+                </div>
+            </div>
+            <div class="btn-group">
+                <button class="btn secondary-btn" onclick="prevStep(1)">戻る</button>
+                <button class="btn primary-btn" onclick="nextStep(3)">次へ</button>
+            </div>
+        </section>
+
+        <!-- Step 3: Palmistry (Camera / Image) & Questions -->
+        <section id="step-3" class="step">
+            <h2>第三の扉: 運命の刻印 (手相)</h2>
+            <p class="subtitle" style="margin-bottom:15px;">カメラで手のひらを写すか、画像をアップロードしてください</p>
+            
+            <div class="camera-container">
+                <video id="camera-video" autoplay playsinline style="display:none;"></video>
+                <canvas id="camera-canvas" style="display:none;"></canvas>
+                <div id="camera-placeholder" class="camera-placeholder">
+                    <span>ここにカメラ映像が表示されます</span>
+                </div>
+                <!-- スキャンアニメーション用オーバーレイ -->
+                <div id="scan-line" class="scan-line"></div>
+            </div>
+
+            <div class="camera-controls">
+                <button class="btn secondary-btn" id="btn-start-camera" type="button">カメラ起動</button>
+                <label class="btn secondary-btn file-upload-btn">
+                    画像を選択
+                    <input type="file" id="image-upload" accept="image/*" style="display:none;">
+                </label>
+            </div>
+            
+            <!-- 解析エラー表示用 -->
+            <p id="palm-status" class="status-msg"></p>
+
+            <div class="form-group" style="margin-top: 25px;">
+                <label>究極の選択: 恋人に一番求めるのは？</label>
+                <select id="q-choice">
+                    <option value="peace">一緒にいて落ち着く安心感</option>
+                    <option value="excitement">ドキドキする刺激</option>
+                    <option value="growth">お互いを高め合える関係性</option>
+                    <option value="support">どんな時も味方でいてくれる包容力</option>
+                </select>
+            </div>
+            <div class="btn-group">
+                <button class="btn secondary-btn" onclick="prevStep(2)">戻る</button>
+                <button class="btn primary-btn" onclick="nextStep(4)">次へ</button>
+            </div>
+        </section>
+
+        <!-- Step 4: Hobbies & Dislikes -->
+        <section id="step-4" class="step">
+            <h2>第四の扉: 魂の共鳴</h2>
+            <div class="form-group">
+                <label>好きなこと・趣味 (カンマ区切りで入力)</label>
+                <input type="text" id="hobbies" placeholder="例: カフェ巡り, 映画鑑賞, ゲーム">
+            </div>
+            <div class="form-group">
+                <label>これだけは許せない・嫌いなこと</label>
+                <input type="text" id="dislikes" placeholder="例: 嘘をつくこと, 時間にルーズ">
+            </div>
+            <div class="btn-group">
+                <button class="btn secondary-btn" onclick="prevStep(3)">戻る</button>
+                <button class="btn primary-btn glow-btn" onclick="calculateResult()">運命を診断する</button>
+            </div>
+        </section>
+
+        <!-- Loading Screen -->
+        <section id="step-loading" class="step">
+            <div class="loader">
+                <div class="crystal"></div>
+                <p>星々の軌跡を読み解いています...</p>
+            </div>
+        </section>
+
+        <!-- Result Screen (Visible UI) -->
+        <section id="step-result" class="step">
+            <h2>星導の啓示</h2>
+            <div class="result-card">
+                <h3 id="result-title">【月読の恋人】</h3>
+                <p id="result-desc">...</p>
+                
+                <div class="compatibility-box">
+                    <h4>手相からの導き</h4>
+                    <p id="result-palm-desc">...</p>
+                </div>
+
+                <div class="compatibility-box">
+                    <h4>運命の相手</h4>
+                    <p id="result-partner">...</p>
+                </div>
+                
+                <div class="advice-box">
+                    <h4>星からの助言</h4>
+                    <p id="result-advice">...</p>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn secondary-btn" onclick="downloadResult()">診断書を保存(画像)</button>
+                <button class="btn primary-btn" onclick="location.reload()">もう一度占う</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Hidden Resume Template for Download -->
+    <div id="resume-template" style="display: none;">
+        <div class="resume-paper" id="resume">
+            <div class="resume-spread">
+                <!-- 左ページ -->
+                <div class="resume-page resume-left">
+                    <div class="resume-header">
+                        <h3 class="resume-title">履歴書〈星導の啓示〉</h3>
+                        <div class="resume-date">令和<span id="r-year"></span>年<span id="r-month"></span>月<span id="r-day"></span>日 現在</div>
+                    </div>
+                    
+                    <div class="resume-top-grid">
+                        <div class="resume-basic">
+                            <table class="resume-table">
+                                <tr>
+                                    <th class="furigana-cell">ふりがな</th>
+                                    <td colspan="3"></td>
+                                </tr>
+                                <tr>
+                                    <th class="name-cell">氏 名</th>
+                                    <td colspan="3" class="name-val">
+                                        <span id="r-name"></span>
+                                        <div class="hanko">星導</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>生年月日</th>
+                                    <td colspan="2"><span id="r-dob-y"></span>年<span id="r-dob-m"></span>月<span id="r-dob-d"></span>日生</td>
+                                    <th><span id="r-gender"></span></th>
+                                </tr>
+                                <tr>
+                                    <th>現住所<br>(出身)</th>
+                                    <td colspan="3"><span id="r-birthplace"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>学歴・職歴</th>
+                                    <td colspan="3"><span id="r-faculty"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>身体情報</th>
+                                    <td colspan="3">身長: <span id="r-height"></span>cm / 体重: <span id="r-weight"></span>kg / 血液型: <span id="r-blood"></span>型</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="resume-photo-box">
+                            <div class="photo-text">写真を<br>貼る位置</div>
+                            <img id="r-photo" src="" alt="手相">
+                        </div>
+                    </div>
+
+                    <!-- 左下へ移動した性格・自己PR -->
+                    <table class="resume-table section-table">
+                        <tr>
+                            <th class="section-title">性格・自己PR (星回り・MBTI・手相)</th>
+                        </tr>
+                        <tr>
+                            <td class="pr-cell">
+                                <h4 id="r-title" style="margin-top:0; color:#333; border-bottom:1px solid #ccc; padding-bottom:5px;"></h4>
+                                <p id="r-desc"></p>
+                                <div class="palm-box">
+                                    <strong>【手相解析結果】</strong><br>
+                                    <span id="r-palm-desc"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- 右ページ -->
+                <div class="resume-page resume-right">
+                    <table class="resume-table section-table">
+                        <tr>
+                            <th class="section-title">本人希望記入欄 (特に運命の相手の条件・休日の過ごし方等)</th>
+                        </tr>
+                        <tr>
+                            <td class="hope-cell">
+                                <p id="r-partner"></p>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <table class="resume-table section-table">
+                        <tr>
+                            <th class="section-title">星からの特記事項・開運アドバイス</th>
+                        </tr>
+                        <tr>
+                            <td class="advice-cell">
+                                <p id="r-advice"></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- html2canvas for downloading result as image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
